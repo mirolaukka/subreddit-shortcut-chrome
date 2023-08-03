@@ -1,3 +1,9 @@
+// Copyright (c) 2023, Miro Laukka
+// All rights reserved.
+
+// This source code is licensed under MIT license found in the
+// LICENSE file in the root directory of this source tree. 
+
 chrome.webNavigation.onBeforeNavigate.addListener((details) => {
     const url = new URL(details.url);
     const searchParams = new URLSearchParams(url.search);
