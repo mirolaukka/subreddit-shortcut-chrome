@@ -1,19 +1,30 @@
-chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-    // Check if the URL has changed and extract the search query from the URL
-    if (changeInfo.url) {
-        const url = new URL(changeInfo.url);
-        const searchParams = new URLSearchParams(url.search);
-        const query = searchParams.get("q");
-        console.log(query)
-        // Check if the search query matches the 'r/subreddit' pattern
-        const urlRegex = /^r\/\w+/;
-        if (query && urlRegex.test(query)) {
-            // Redirect to the subreddit URL
-            const subreddit = query.replace(/^r\//, '');
-            const redirectUrl = `https://www.reddit.com/r/${subreddit}/`;
-            chrome.tabs.update(tabId, {
-                url: redirectUrl
-            });
-        }
+chrome.webRequest.onBeforeRequest.addListener(
+    callbackFunction, {
+        urls: ['<all_urls>']
+    },
+    ['blocking']
+);
+
+function callbackFunction(details) {
+    const url = new URL(details.url);
+    const searchParams = new URLSearchParams(url.search);
+    const query = searchParams.get("q");
+
+    const urlRegex = /^r\/\w+/;
+
+    if (!details.url.includes("reddit") && urlRegex.test(query)) {
+        // Redirect to the subreddit
+        const subreddit = query.substring(2); // Remove 'r/' from the query
+        const redirectUrl = `https://www.reddit.com/r/${subreddit}`;
+
+        return {
+            redirectUrl: redirectUrl
+        };
     }
-});
+
+    // If no redirection needed, return nothing or { cancel: false }
+    // to allow the request to continue normally.
+    return {
+        cancel: false
+    };
+}
