@@ -43,7 +43,7 @@ To install the extension, follow these steps:
 4. Click on the "Load unpacked" button and select the folder containing the extension code that you cloned.
 5. The extension will be installed, and you should see its icon added to your Chrome toolbar.
 
-You can find the extension for Firefox here [Github](https://github.com/mirolaukka/subreddit-shortcut-firefox)
+You can find the extension for Firefox [here](https://github.com/mirolaukka/subreddit-shortcut-firefox)
 
 ## Feedback and Bug Reporting
 
