@@ -37,11 +37,11 @@ The extension should work with most search engines that follow the standard `q` 
 
 To install the extension, follow these steps:
 
-1. Clone the repository with `git clone https://github.com/mirolaukka/subreddit-shortcut-extension.git`.
-2. Open Google Chrome and navigate to `chrome://extensions/`.
-3. Enable the "Developer mode" toggle in the top right corner.
-4. Click on the "Load unpacked" button and select the folder containing the extension code that you cloned.
-5. The extension will be installed, and you should see its icon added to your Chrome toolbar.
+1. Clone the repository with `git clone https://github.com/mirolaukka/subreddit-shortcut-chrome.git`.
+3. Open Google Chrome and navigate to `chrome://extensions/`.
+4. Enable the "Developer mode" toggle in the top right corner.
+5. Click on the "Load unpacked" button and select the folder containing the extension code that you cloned.
+6. The extension will be installed, and you should see its icon added to your Chrome toolbar.
 
 You can find the extension for Firefox [here](https://github.com/mirolaukka/subreddit-shortcut-firefox)
 
